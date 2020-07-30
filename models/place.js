@@ -21,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     placeIcon: {
       type: DataTypes.STRING(255),
-      defaultValue: 'default-icon'
+      defaultValue: 'default-icon.png'
     }
   }, {
     tableName: 'places',
