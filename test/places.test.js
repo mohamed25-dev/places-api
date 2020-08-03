@@ -1,6 +1,7 @@
 const supertest = require('supertest');
 
 const http = require('http');
+const path = require('path');
 const fs = require('fs');
 const db = require('../models/index');
 const app = require('../startup/app');
@@ -47,7 +48,7 @@ describe('/api/places', () => {
         .post('/api/places')
         .field('placeName', 'Home2')
         .field('placeLocation', 'SomeWhere')
-        .attach('placeImages', 'test/home-test.jpg');
+        .attach('placeImages',  path.join(__dirname, 'home-test.jpg'));
 
       expect(res.status).toBe(201);
       expect(res.body.data).toHaveProperty('place');
@@ -58,7 +59,7 @@ describe('/api/places', () => {
         .post('/api/places')
         .field('placeName', 'Home')
         .field('placeLocation', 'SomeWhere')
-        .attach('placeImages', 'test/home-test.jpg');
+        .attach('placeImages', path.join(__dirname, 'home-test.jpg'));
 
       expect(res.status).toBe(400);
     });
@@ -66,7 +67,7 @@ describe('/api/places', () => {
     it('Should return 400 bad request "placeName" is required ', async () => {
       const res =  await request
         .post('/api/places')
-        .attach('placeImages', 'test/home-test.jpg');
+        .attach('placeImages',  path.join(__dirname, 'home-test.jpg'));
 
       expect(res.status).toBe(400);
     });

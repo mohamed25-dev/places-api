@@ -1,15 +1,15 @@
 {
     "development": {
-        "username": "username",
-        "password": "password",
+        "username": "root",
+        "password": "238732",
         "database": "places_api",
         "host": "127.0.0.1",
         "dialect": "mysql",
         "logging": false
     },
     "test": {
-      "username": "username",
-      "password": "password",
+      "username": "root",
+      "password": "238732",
       "database": "places_api_test",
       "host": "127.0.0.1",
       "dialect": "mysql"
